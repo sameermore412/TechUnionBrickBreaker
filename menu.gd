@@ -11,5 +11,5 @@ func _on_restart_clicked() -> void:
 	
 func show_win_label(time: float) -> void:
 	%WinLabel.visible = true
-	%WinLabel.text = "Nice!!! Completed In %d Seconds" % time
+	%WinLabel.text = "You Won!!! Completed In %d Seconds" % time
 	
