@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwbx7gkqh4q0e"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_5xjl6"]
+[ext_resource type="FontFile" uid="uid://pl8juxlit3ht" path="res://assets/OpenSans-Regular.ttf" id="2_xgp5k"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_5xjl6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.705882, 0.184314, 0.184314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="WinLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_xgp5k")
+theme_override_font_sizes/font_size = 36
+
+[node name="Label 1" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_xgp5k")
+theme_override_font_sizes/font_size = 36
+text = "Thanks For Playing!!!"
+
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_xgp5k")
+theme_override_font_sizes/font_size = 36
+text = "RESTART"
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xgp5k")
+theme_override_font_sizes/font_size = 36
+text = "Play More Tech Union Games"
+uri = "https://nytimesguild.org/tech/guild-builds/index.html"

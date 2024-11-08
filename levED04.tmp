@@ -1,0 +1,213 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo5rk2qkarih4"]
+
+[ext_resource type="Texture2D" uid="uid://dh5srvssinilw" path="res://assets/paddle.png" id="2_hvg51"]
+[ext_resource type="Script" path="res://paddle.gd" id="2_p77wp"]
+[ext_resource type="Texture2D" uid="uid://tuf4r6aidkae" path="res://assets/logo round.png" id="3_jooiq"]
+[ext_resource type="Script" path="res://ball.gd" id="4_5frvv"]
+[ext_resource type="Script" path="res://wall.gd" id="5_a1wg5"]
+[ext_resource type="PackedScene" uid="uid://detlf1iomhy5h" path="res://block.tscn" id="5_fnwlt"]
+[ext_resource type="Script" path="res://kill_zone.gd" id="6_cqpj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efabe"]
+size = Vector2(88, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4lky"]
+radius = 26.5625
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1rgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0m36"]
+size = Vector2(24.6305, 20)
+
+[node name="BrickBreaker" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 634.0
+offset_bottom = 400.0
+scale = Vector2(1.04, 1)
+color = Color(0.0351055, 0.0352079, 0.00514794, 1)
+
+[node name="Paddle" type="Area2D" parent="."]
+position = Vector2(341, 375)
+script = ExtResource("2_p77wp")
+move_speed = 1000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(0, -2)
+scale = Vector2(1.04384, 1)
+shape = SubResource("RectangleShape2D_efabe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+scale = Vector2(3.13, 2.77)
+texture = ExtResource("2_hvg51")
+
+[node name="Timer" type="Timer" parent="Paddle"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Ball" type="Area2D" parent="."]
+position = Vector2(344, 236)
+script = ExtResource("4_5frvv")
+starting_speed = 300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_d4lky")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_jooiq")
+
+[node name="TopWall" type="Area2D" parent="."]
+position = Vector2(352, -12)
+scale = Vector2(27.92, 1)
+script = ExtResource("5_a1wg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(-1.2894, 0)
+scale = Vector2(1.1404, 1)
+shape = SubResource("RectangleShape2D_g1rgs")
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2(647, 194)
+scale = Vector2(0.914712, 19.4343)
+script = ExtResource("5_a1wg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-1.2894, 0)
+scale = Vector2(1.1404, 1)
+shape = SubResource("RectangleShape2D_g1rgs")
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2(-10.9999, 194)
+scale = Vector2(0.960004, 19.24)
+script = ExtResource("5_a1wg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-1.2894, 0)
+scale = Vector2(1.1404, 1)
+shape = SubResource("RectangleShape2D_g1rgs")
+
+[node name="Top Row" type="Node2D" parent="."]
+position = Vector2(11, 0)
+
+[node name="Block" parent="Top Row" instance=ExtResource("5_fnwlt")]
+
+[node name="Block2" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(86, 16)
+
+[node name="Block3" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(144, 16)
+
+[node name="Block4" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(201, 16)
+
+[node name="Block5" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(255, 16)
+
+[node name="Block6" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(309, 16)
+
+[node name="Block7" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(363, 16)
+
+[node name="Block8" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(418, 16)
+
+[node name="Block9" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(474, 16)
+
+[node name="Block10" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Block11" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(582, 16)
+
+[node name="Block12" parent="Top Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Middle Row" type="Node2D" parent="."]
+position = Vector2(11, 34)
+
+[node name="Block" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+
+[node name="Block2" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(86, 16)
+
+[node name="Block3" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(144, 16)
+
+[node name="Block4" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(201, 16)
+
+[node name="Block5" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(255, 16)
+
+[node name="Block6" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(309, 16)
+
+[node name="Block7" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(363, 16)
+
+[node name="Block8" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(418, 16)
+
+[node name="Block9" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(474, 16)
+
+[node name="Block10" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Block11" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(582, 16)
+
+[node name="Block12" parent="Middle Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Bottom Row" type="Node2D" parent="."]
+position = Vector2(11, 70)
+
+[node name="Block" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+
+[node name="Block2" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(86, 16)
+
+[node name="Block3" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(144, 16)
+
+[node name="Block4" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(201, 16)
+
+[node name="Block5" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(255, 16)
+
+[node name="Block6" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(309, 16)
+
+[node name="Block7" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(363, 16)
+
+[node name="Block8" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(418, 16)
+
+[node name="Block9" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(474, 16)
+
+[node name="Block10" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Block11" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(582, 16)
+
+[node name="Block12" parent="Bottom Row" instance=ExtResource("5_fnwlt")]
+position = Vector2(528, 16)
+
+[node name="Kill Zone" type="Area2D" parent="."]
+position = Vector2(0, 399)
+script = ExtResource("6_cqpj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone"]
+position = Vector2(327.4, 12)
+scale = Vector2(26.52, 1.08)
+shape = SubResource("RectangleShape2D_j0m36")
+
+[node name="Timer" type="Timer" parent="Kill Zone"]

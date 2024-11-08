@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://detlf1iomhy5h"]
+
+[ext_resource type="Script" path="res://block.gd" id="1_j4igl"]
+[ext_resource type="Texture2D" uid="uid://1lfn2c4v3ca8" path="res://assets/red_block.png" id="2_88vcr"]
+[ext_resource type="AudioStream" uid="uid://c2nyq03p2apyf" path="res://assets/laserLarge_002.ogg" id="3_1knyl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ol68u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncxnx"]
+size = Vector2(26, 14)
+
+[node name="Block" type="Area2D"]
+material = SubResource("ShaderMaterial_ol68u")
+scale = Vector2(2, 2)
+script = ExtResource("1_j4igl")
+texture = ExtResource("2_88vcr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_88vcr")
+region_enabled = true
+region_rect = Rect2(1.9482, 9.72996, 26.1613, 14.4977)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ncxnx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1knyl")
